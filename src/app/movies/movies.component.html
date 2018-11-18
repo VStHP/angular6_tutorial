@@ -1,15 +1,8 @@
 <h1>
   {{title}}
 </h1>
-<div class="info">
-  <p>{{movie.id}}</p>
-  <p>{{movie.name}}</p>
-  <p>{{movie.release_year}}</p>
-</div>
-<h2>Edit detail</h2>
-<div>
-  <p>Name</p>
-  <input [(ngModel)]="movie.name">
-  <p>Release Year</p>
-  <input [(ngModel)]="movie.release_year">
-</div>
+<ul>
+  <li *ngFor="let movie of movies">
+    {{movie.id}}: {{movie.name}}, {{movie.release_year}}
+  </li>
+</ul>

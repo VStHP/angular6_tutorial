@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../models/movie';
+import { listMovies } from './template_data';
 
 @Component({
   selector: 'app-movies',
@@ -8,12 +9,8 @@ import { Movie } from '../../models/movie';
 })
 
 export class MoviesComponent implements OnInit {
-  movie: Movie = {
-    id: 1,
-    name: 'Harry Potter',
-    release_year: 2001
-  }
-  title = 'Detail movie'
+  title = 'List Movies'
+  movies = listMovies
 
   constructor() { }
 
