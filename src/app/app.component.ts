@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular6-start';
+  movies;
+
+  // constructor(private http: Http){
+  //   http.get('http://localhost:3000/movies.json')
+  //       .subscribe(res => this.movies = res.json());
+  // }
 }
