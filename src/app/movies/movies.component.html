@@ -1,8 +1,11 @@
 <h1>
   {{title}}
 </h1>
-<ul>
-  <li *ngFor="let movie of movies">
-    {{movie.id}}: {{movie.name}}, {{movie.release_year}}
-  </li>
-</ul>
+<div class="container-movies">
+  <ol class="movies">
+    <li *ngFor="let movie of movies" (click)="onSelect(movie)"
+    [class.selected]="movie === selectMovie">
+      {{movie.name}}, {{movie.release_year}}
+    </li>
+  </ol>
+</div>

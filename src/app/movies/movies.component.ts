@@ -17,4 +17,10 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectMovie: Movie;
+  onSelect(movie: Movie): void {
+    this.selectMovie = movie;
+    console.log(`select: ${JSON.stringify(this.selectMovie)}`);
+  }
+
 }
