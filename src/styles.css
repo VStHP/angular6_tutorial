@@ -26,3 +26,7 @@ h1{
   background: #faffc5;
   font-weight: 600;
 }
+.movie-detail {
+  background: #ff8e8e;
+  height: 300px;
+}

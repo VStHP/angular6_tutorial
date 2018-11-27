@@ -1,11 +1,28 @@
 <h1>
   {{title}}
 </h1>
-<div class="container-movies">
-  <ol class="movies">
-    <li *ngFor="let movie of movies" (click)="onSelect(movie)"
-    [class.selected]="movie === selectMovie">
-      {{movie.name}}, {{movie.release_year}}
-    </li>
-  </ol>
+<div class="row">
+  <div class="container-movies col-md-4">
+    <ol class="movies">
+      <li *ngFor="let movie of movies" (click)="onSelect(movie)"
+      [class.selected]="movie === selectMovie">
+        {{movie.name}}, {{movie.release_year}}
+      </li>
+    </ol>
+  </div>
+  <div *ngIf="selectMovie" class="col-md-4 movie-detail">
+    <h3>Movie: {{selectMovie.name}}</h3>
+    <table>
+      <tr>
+        <td>Name: </td>
+        <td>
+          <input [(ngModel)]="selectMovie.name" class="form-control">
+        </td>
+      </tr>
+      <tr>
+        <td>Release Year: </td>
+        <td><input [(ngModel)]="selectMovie.release_year" class="form-control"></td>
+      </tr>
+    </table>
+  </div>
 </div>
