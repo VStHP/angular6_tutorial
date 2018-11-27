@@ -10,19 +10,5 @@
       </li>
     </ol>
   </div>
-  <div *ngIf="selectMovie" class="col-md-4 movie-detail">
-    <h3>Movie: {{selectMovie.name}}</h3>
-    <table>
-      <tr>
-        <td>Name: </td>
-        <td>
-          <input [(ngModel)]="selectMovie.name" class="form-control">
-        </td>
-      </tr>
-      <tr>
-        <td>Release Year: </td>
-        <td><input [(ngModel)]="selectMovie.release_year" class="form-control"></td>
-      </tr>
-    </table>
-  </div>
+  <app-movie-detail [movie]='selectMovie' class="col-md-4"></app-movie-detail>
 </div>
