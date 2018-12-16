@@ -9,6 +9,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieService } from './services/movie.service';
 import { MessageService } from './services/message.service';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [MovieService, MessageService],
   bootstrap: [AppComponent]
