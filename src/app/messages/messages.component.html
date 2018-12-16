@@ -1,0 +1,6 @@
+<div style="text-align: right;" *ngIf="messageService.messages.length">
+  <p class="btn btn-danger" (click)="messageService.deleteAll()">
+    Remove all messages!
+  </p>
+  <p *ngFor="let message of messageService.messages">{{message}}</p>
+</div>
