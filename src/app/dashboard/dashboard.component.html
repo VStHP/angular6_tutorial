@@ -1,7 +1,7 @@
 <hr>
 <h3 style="text-align: center;">Most views</h3>
 <div class="container">
-    <div *ngFor="let movie of mostViewMovies">
+    <div *ngFor="let movie of mostViewMovies" routerLink="/movie/{{movie.id}}">
       {{movie.name}}
     </div>
 </div>

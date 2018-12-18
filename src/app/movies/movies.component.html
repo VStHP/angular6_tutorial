@@ -4,12 +4,13 @@
 <div class="row">
   <div class="container-movies col-md-4">
     <ol class="movies">
-      <li *ngFor="let movie of movies" (click)="onSelect(movie)"
-      [class.selected]="movie === selectMovie">
-        {{movie.name}}, {{movie.release_year}}
+      <li *ngFor="let movie of movies">
+        <a routerLink="/movie/{{movie.id}}">
+          {{movie.name}}, {{movie.release_year}}
+        </a>
       </li>
     </ol>
     <app-messages></app-messages>
   </div>
-  <app-movie-detail [movie]='selectMovie' class="col-md-4"></app-movie-detail>
+  <!-- <app-movie-detail [movie]='selectMovie' class="col-md-4"></app-movie-detail> -->
 </div>

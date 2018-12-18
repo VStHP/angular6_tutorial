@@ -17,4 +17,8 @@ export class MovieService {
     console.log(this.messageService.messages);
     return of(listMovies);
   }
+
+  getMovieById(id: number): Observable<Movie> {
+    return of(listMovies.find(movie => movie.id === id));
+  }
 }

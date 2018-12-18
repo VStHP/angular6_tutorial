@@ -1,15 +1,15 @@
-<div *ngIf="movie" class="movie-detail">
-  <h3>Movie: {{movie.name}}</h3>
+<div class="movie-detail">
+  <h3>Movie: {{detailMovie.name}}</h3>
   <table>
     <tr>
       <td>Name: </td>
       <td>
-        <input [(ngModel)]="movie.name" class="form-control">
+        <input [(ngModel)]="detailMovie.name" class="form-control">
       </td>
     </tr>
     <tr>
       <td>Release Year: </td>
-      <td><input [(ngModel)]="movie.release_year" class="form-control"></td>
+      <td><input [(ngModel)]="detailMovie.release_year" class="form-control"></td>
     </tr>
   </table>
 </div>
