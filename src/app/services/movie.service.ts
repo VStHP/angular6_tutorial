@@ -4,21 +4,28 @@ import { Movie } from '../../models/movie';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tap, map, catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-
-  constructor(public messageService: MessageService) { }
+  private indexURL = 'http://localhost:3000/movies';
+  private detailURL = 'http://localhost:3000/movies/';
+  constructor(
+    public messageService: MessageService,
+    private httpClient: HttpClient
+  ){}
 
   getMovies(): Observable<Movie[]> {
-    this.messageService.add(`Get Movies at: ${new Date().toLocaleString()}`);
-    console.log(this.messageService.messages);
-    return of(listMovies);
+    // this.messageService.add(`Get Movies at: ${new Date().toLocaleString()}`);
+    // console.log(this.messageService.messages);
+    return this.httpClient.get<Movie[]>(this.indexURL).pipe(
+      catchError(error => of([]))
+    );
   }
 
   getMovieById(id: number): Observable<Movie> {
-    return of(listMovies.find(movie => movie.id === id));
+    return this.httpClient.get<Movie>(this.detailURL + id).pipe()
   }
 }

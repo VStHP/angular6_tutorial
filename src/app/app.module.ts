@@ -11,6 +11,7 @@ import { MessageService } from './services/message.service';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [MovieService, MessageService],
   bootstrap: [AppComponent]

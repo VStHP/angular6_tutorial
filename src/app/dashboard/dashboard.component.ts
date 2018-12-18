@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getMostViewMovie() {
-    this.movieService.getMovies().subscribe(movies => this.mostViewMovies = movies.slice(0,3));
+    this.movieService.getMovies().subscribe(movies => this.mostViewMovies = movies.slice(0, 3));
   }
 
 }
