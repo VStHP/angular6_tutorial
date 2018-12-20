@@ -28,4 +28,15 @@ export class MovieService {
   getMovieById(id: number): Observable<Movie> {
     return this.httpClient.get<Movie>(this.detailURL + id).pipe()
   }
+
+  updateMovie(movie: Movie): Observable<any> {
+    const url = `${this.indexURL}/${movie.id}`;
+    const headerOptions = {
+      headers: new HttpHeaders({'content-type': 'application/json'})
+    };
+    return this.httpClient.put(url, movie, headerOptions).pipe(
+      tap(updatedMovie => console.log("Update success")),
+      catchError(error => of(new Movie()))
+    );
+  }
 }
