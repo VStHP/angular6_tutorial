@@ -5,6 +5,9 @@
   <div class="container-movies col-md-4">
     <ol class="movies">
       <li *ngFor="let movie of movies">
+        <span style="color: red" >
+          <i (click)="delete(movie.id);" class="fa fa-trash"></i>
+        </span>
         <a routerLink="/movie/{{movie.id}}">
           {{movie.name}}, {{movie.release_year}}
         </a>

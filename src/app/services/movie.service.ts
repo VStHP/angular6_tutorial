@@ -40,10 +40,17 @@ export class MovieService {
     );
   }
 
-  createMovie(movie: Movie): Observable<Movie> {
+  createMovie(movie: Movie): Observable<any> {
     return this.httpClient.post<Movie>(this.indexURL, movie, headerOptions).pipe(
       tap( createMovie => console.log("Create success")),
-      catchError( error => of(new Movie()))
+      catchError( error => of(error))
+    );
+  }
+
+  deleteMovie(movieId: number): Observable<Movie> {
+    return this.httpClient.delete<Movie>(this.detailURL + movieId).pipe(
+      tap(deletedMovie => console.log(`Deleted movie id = ${deletedMovie.id}`)),
+      catchError(error => of(null))
     );
   }
 }

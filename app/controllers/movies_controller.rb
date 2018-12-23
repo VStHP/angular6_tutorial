@@ -36,6 +36,12 @@ class MoviesController < ApplicationController
   # DELETE /movies/1
   def destroy
     @movie.destroy
+    render json: { status: 200 }
+  end
+
+  def search
+    @movies = Movie._name_or_release_year(params[:value])
+    render json: @movies
   end
 
   private
