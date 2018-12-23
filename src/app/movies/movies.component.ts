@@ -11,12 +11,20 @@ import { MovieService } from '../services/movie.service';
 export class MoviesComponent implements OnInit {
   title = 'List Movies'
   movies: Movie[];
+  newMovie: Movie;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.newMovie = new Movie();
     this.movieService.getMovies().subscribe(
       (followMovie) => { this.movies = followMovie }
+    );
+  }
+
+  create(): void {
+    this.movieService.createMovie(this.newMovie).subscribe(
+      createdMovie => this.movies.push(createdMovie)
     );
   }
 

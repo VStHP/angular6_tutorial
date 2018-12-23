@@ -12,5 +12,20 @@
     </ol>
     <app-messages></app-messages>
   </div>
+  <div class="col-md-4">
+    <table>
+      <tr>
+        <td>Name: </td>
+        <td>
+          <input [(ngModel)]="newMovie.name" class="form-control">
+        </td>
+      </tr>
+      <tr>
+        <td>Release Year: </td>
+        <td><input [(ngModel)]="newMovie.release_year" class="form-control"></td>
+      </tr>
+    </table>
+    <button (click)="create();">Save</button>
+  </div>
   <!-- <app-movie-detail [movie]='selectMovie' class="col-md-4"></app-movie-detail> -->
 </div>

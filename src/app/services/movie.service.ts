@@ -6,6 +6,9 @@ import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, map, catchError } from 'rxjs/operators';
+const headerOptions = {
+      headers: new HttpHeaders({'content-type': 'application/json'})
+    };
 @Injectable({
   providedIn: 'root'
 })
@@ -31,12 +34,16 @@ export class MovieService {
 
   updateMovie(movie: Movie): Observable<any> {
     const url = `${this.indexURL}/${movie.id}`;
-    const headerOptions = {
-      headers: new HttpHeaders({'content-type': 'application/json'})
-    };
     return this.httpClient.put(url, movie, headerOptions).pipe(
       tap(updatedMovie => console.log("Update success")),
       catchError(error => of(new Movie()))
+    );
+  }
+
+  createMovie(movie: Movie): Observable<Movie> {
+    return this.httpClient.post<Movie>(this.indexURL, movie, headerOptions).pipe(
+      tap( createMovie => console.log("Create success")),
+      catchError( error => of(new Movie()))
     );
   }
 }
