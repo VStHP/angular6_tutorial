@@ -14,7 +14,7 @@ h1{
   padding-top: 5px;
   padding-bottom: 5px;
 }
-.movies li {
+.movies li, .movies-search li {
   padding: 10px;
   margin-bottom: 5px;
   background: #98f7bb;

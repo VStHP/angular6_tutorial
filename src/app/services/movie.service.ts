@@ -53,4 +53,13 @@ export class MovieService {
       catchError(error => of(null))
     );
   }
+
+  searchMovie(value: string): Observable<Movie[]> {
+    if(!value.trim()){
+      return of([])
+    }
+    return this.httpClient.get<Movie[]>(`${this.indexURL}/search?value=${value}`).pipe(
+      catchError(error => of([]))
+    );
+  }
 }

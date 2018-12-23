@@ -1,0 +1,10 @@
+<div id="movies">
+  <input style="width: 200px; float: right; margin-right: 10px" class="form-control" #searchBox (keyup)="search(searchBox.value)" placeholder="Search here...">
+  <ol class="movies-search">
+    <li *ngFor="let movie of movies$ | async">
+      <a routerLink="/movie/{{movie.id}}">
+        {{movie.name}}, {{movie.release_year}}
+      </a>
+    </li>
+  </ol>
+</div>
